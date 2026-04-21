@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - SpiderScope</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="loader"><div class="spinner"></div></div>
+<div class="scroll-top"><i class="fas fa-arrow-up"></i></div>
+
+<header class="header">
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo"><i class="fas fa-shield-haltered"></i> Spider<span>Scope</span></div>
+            <div class="menu-btn"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-key="nav_home">Home</a></li>
+                <li><a href="services.html" data-key="nav_services">Services</a></li>
+                <li><a href="about.html" data-key="nav_about">About Us</a></li>
+                <li><a href="blog.html" class="active" data-key="nav_blog">Blog</a></li>
+                <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
+            </ul>
+            <button class="lang-switch" id="langToggle">🇸🇦 العربية</button>
+        </nav>
+    </div>
+</header>
+
+<section class="page-header">
+    <div class="container">
+        <h1 data-key="blog_page_title">Our <span>Blog</span></h1>
+        <p data-key="blog_page_desc">Latest insights on IoT security and smart technology</p>
+    </div>
+</section>
+
+<section class="blog-grid-section">
+    <div class="container">
+        <div class="blog-posts">
+            <article class="blog-card">
+                <div class="blog-image"><img src="https://placehold.co/400x250/0F1A3A/00B4D8?text=IoT+Security" alt="IoT Security"></div>
+                <div class="blog-content"><span class="blog-date">March 15, 2026</span><h3 data-key="blog1_title">Top 5 IoT Security Threats in 2026</h3><p data-key="blog1_excerpt">Learn about the most common security vulnerabilities in IoT devices and how to protect your network...</p><a href="#" class="read-more" data-key="read_more">Read More →</a></div>
+            </article>
+            <article class="blog-card">
+                <div class="blog-image"><img src="https://placehold.co/400x250/0F1A3A/00B4D8?text=Smart+Home" alt="Smart Home"></div>
+                <div class="blog-content"><span class="blog-date">March 10, 2026</span><h3 data-key="blog2_title">Building a Secure Smart Home Ecosystem</h3><p data-key="blog2_excerpt">Best practices for securing your smart home devices without sacrificing convenience...</p><a href="#" class="read-more" data-key="read_more">Read More →</a></div>
+            </article>
+            <article class="blog-card">
+                <div class="blog-image"><img src="https://placehold.co/400x250/0F1A3A/00B4D8?text=Cyber+Security" alt="Cyber Security"></div>
+                <div class="blog-content"><span class="blog-date">March 5, 2026</span><h3 data-key="blog3_title">Zero Trust Architecture for IoT</h3><p data-key="blog3_excerpt">Implementing zero trust principles to protect your IoT infrastructure from internal and external threats...</p><a href="#" class="read-more" data-key="read_more">Read More →</a></div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">...</footer>
+<script src="script.js"></script>
+</body>
+</html>

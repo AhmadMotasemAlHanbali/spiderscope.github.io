@@ -1,287 +1,155 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpiderScope | Smart IoT & Cyber Security Solutions</title>
-    <meta name="description" content="SpiderScope - حلول إنترنت الأشياء الآمنة، سمارت هوم، كاميرات مراقبة، ري عن بعد، وأمن سيبراني متكامل">
-    <meta name="keywords" content="IoT, Smart Home, Security Cameras, Smart Irrigation, Cyber Security, SpiderScope">
-    <meta name="author" content="SpiderScope">
-    
-    <!-- ربط ملف CSS -->
+    <meta name="description" content="SpiderScope - Secure IoT, Smart Home, Security Cameras, Smart Irrigation, and Cyber Security Solutions">
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Font Awesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- شاشة التحميل (Loader) -->
-<div class="loader">
-    <div class="spinner"></div>
-</div>
+<!-- Loader -->
+<div class="loader"><div class="spinner"></div></div>
 
-<!-- مؤشر ماوس مخصص (Custom Cursor) -->
-<div class="custom-cursor"></div>
+<!-- Scroll to Top Button -->
+<div class="scroll-top"><i class="fas fa-arrow-up"></i></div>
 
-<!-- زر العودة للأعلى -->
-<div class="scroll-top">
-    <i class="fas fa-arrow-up"></i>
-</div>
-
-<!-- الهيدر (شريط التنقل) -->
+<!-- Header with Language Switcher -->
 <header class="header">
     <div class="container">
         <nav class="navbar">
             <div class="logo">
-                <i class="fas fa-spider"></i> Spider<span>Scope</span>
+                <i class="fas fa-shield-haltered"></i> Spider<span>Scope</span>
             </div>
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
+            <div class="menu-btn"><i class="fas fa-bars"></i></div>
             <ul class="nav-links">
-                <li><a href="#home" class="active">الرئيسية</a></li>
-                <li><a href="#services">خدماتنا</a></li>
-                <li><a href="#about">من نحن</a></li>
-                <li><a href="#contact">اتصل بنا</a></li>
+                <li><a href="index.html" class="active" data-key="nav_home">Home</a></li>
+                <li><a href="services.html" data-key="nav_services">Services</a></li>
+                <li><a href="about.html" data-key="nav_about">About Us</a></li>
+                <li><a href="blog.html" data-key="nav_blog">Blog</a></li>
+                <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
             </ul>
+            <button class="lang-switch" id="langToggle">🇸🇦 العربية</button>
         </nav>
     </div>
 </header>
 
-<!-- القسم الترحيبي (Hero) -->
-<section id="home" class="hero">
+<!-- Hero Section -->
+<section class="hero">
     <div class="hero-content">
-        <div class="hero-badge">
-            <i class="fas fa-shield-alt"></i> Secure by Design
-        </div>
-        <h1>Secure Connections, <br><span>Smart Control</span></h1>
-        <p>حلول إنترنت الأشياء الآمنة | سمارت هوم | كاميرات مراقبة | ري عن بعد</p>
+        <div class="hero-badge"><i class="fas fa-shield-alt"></i> <span data-key="hero_badge">Secure by Design</span></div>
+        <h1><span data-key="hero_title1">Secure Connections,</span> <br><span data-key="hero_title2">Smart Control</span></h1>
+        <p data-key="hero_desc">Secure IoT Solutions | Smart Home | Security Cameras | Smart Irrigation | Cyber Security</p>
         <div class="hero-buttons">
-            <a href="#services" class="btn">اكتشف خدماتنا <i class="fas fa-arrow-right"></i></a>
-            <a href="#contact" class="btn btn-outline">اطلب استشارة <i class="fas fa-headset"></i></a>
+            <a href="services.html" class="btn" data-key="hero_btn1">Discover Services <i class="fas fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn btn-outline" data-key="hero_btn2">Request Consultation <i class="fas fa-headset"></i></a>
         </div>
     </div>
 </section>
 
-<!-- قسم الخدمات -->
-<section id="services" class="services">
+<!-- Services Section -->
+<section class="services">
     <div class="container">
         <div class="section-header">
-            <h2>خدماتنا <span>المتميزة</span></h2>
-            <p>نقدم حلولاً متكاملة وآمنة تناسب احتياجاتك</p>
+            <h2><span data-key="services_title">Our</span> <span data-key="services_title_highlight">Services</span></h2>
+            <p data-key="services_sub">We provide integrated and secure solutions tailored to your needs</p>
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-                <h3>Smart Home</h3>
-                <p>تحكم ذكي بالإضاءة والتكييف والستائر والأجهزة المنزلية بالكامل، مع أعلى معايير الأمان والتشفير.</p>
+                <div class="service-icon"><i class="fas fa-home"></i></div>
+                <h3 data-key="service1_title">Smart Home</h3>
+                <p data-key="service1_desc">Smart control of lighting, AC, curtains, and all home appliances with highest security standards.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-tint"></i>
-                </div>
-                <h3>Smart Irrigation</h3>
-                <p>نظام ري ذكي عن بعد مع حساسات رطوبة وجدولة آلية لتوفير المياه بنسبة تصل إلى 50%.</p>
+                <div class="service-icon"><i class="fas fa-tint"></i></div>
+                <h3 data-key="service2_title">Smart Irrigation</h3>
+                <p data-key="service2_desc">Remote smart irrigation system with moisture sensors and automated scheduling to save up to 50% water.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-video"></i>
-                </div>
-                <h3>Security Cameras</h3>
-                <p>كاميرات مراقبة عالية الوضوح 4K مع تشفير شامل ضد الاختراق، ونظام إنذار فوري.</p>
+                <div class="service-icon"><i class="fas fa-video"></i></div>
+                <h3 data-key="service3_title">Security Cameras</h3>
+                <p data-key="service3_desc">4K high-resolution security cameras with full encryption against hacking and instant alert system.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-shield-haltered"></i>
-                </div>
-                <h3>IoT Security</h3>
-                <p>تقييم أمني لأجهزة IoT ومنع الثغرات وحماية الشبكات من الهجمات السيبرانية.</p>
+                <div class="service-icon"><i class="fas fa-shield-haltered"></i></div>
+                <h3 data-key="service4_title">IoT Security</h3>
+                <p data-key="service4_desc">Security assessment for IoT devices, vulnerability prevention, and network protection from cyber attacks.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <h3 data-key="service5_title">Cloud Security</h3>
+                <p data-key="service5_desc">Secure cloud infrastructure for your IoT devices with end-to-end encryption and real-time monitoring.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-robot"></i></div>
+                <h3 data-key="service6_title">AI Threat Detection</h3>
+                <p data-key="service6_desc">Artificial intelligence powered threat detection and automated incident response systems.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- قسم من نحن -->
-<section id="about" class="about">
+<!-- Stats Section -->
+<section class="stats-section">
     <div class="container">
-        <div class="about-content">
-            <div class="about-text">
-                <h2>من <span>نحن؟</span></h2>
-                <p>نحن SpiderScope، فريق متكامل من مهندسي الحاسوب ومختصي الأمن السيبراني والمبرمجين. نقدم حلول إنترنت الأشياء الآمنة من التصميم وحتى التشغيل.</p>
-                <p>نؤمن بأن الأمن ليس إضافة، بل هو الأساس في أي نظام ذكي. لذلك نبني جميع حلولنا وفق أعلى المعايير العالمية مثل IEC 62443 و ISO 27001.</p>
-                <div class="about-stats">
-                    <div class="stat">
-                        <h3 data-target="50">50+</h3>
-                        <p>مشروع ناجح</p>
-                    </div>
-                    <div class="stat">
-                        <h3 data-target="20">20+</h3>
-                        <p>عميل موثوق</p>
-                    </div>
-                    <div class="stat">
-                        <h3 data-target="100">100%</h3>
-                        <p>رضا العملاء</p>
-                    </div>
-                </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3 class="stat-number" data-target="150">0</h3>
+                <p data-key="stat1">Projects Completed</p>
             </div>
-            <div class="about-image">
-                <img src="https://placehold.co/600x400/1a1a2e/e94560?text=SpiderScope+Team" alt="SpiderScope Team">
+            <div class="stat-card">
+                <h3 class="stat-number" data-target="98">0</h3>
+                <p data-key="stat2">Happy Clients</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-number" data-target="24">0</h3>
+                <p data-key="stat3">Security Experts</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-number" data-target="100">0</h3>
+                <p data-key="stat4">Client Satisfaction</p>
+                <span>%</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- قسم التواصل -->
-<section id="contact" class="contact">
-    <div class="container">
-        <div class="section-header">
-            <h2>تواصل <span>معنا</span></h2>
-            <p>نحن هنا لمساعدتك، تواصل معنا الآن</p>
-        </div>
-        <div class="contact-grid">
-            <div class="contact-info">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>موقعنا</h4>
-                        <p>الأردن - عمان</p>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>البريد الإلكتروني</h4>
-                        <p>info@spiderscope.com</p>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>رقم الهاتف</h4>
-                        <p>+962 7X XXX XXXX</p>
-                    </div>
-                </div>
-            </div>
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <input type="text" id="name" placeholder="الاسم الكامل" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" placeholder="البريد الإلكتروني" required>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" placeholder="رسالتك..." required></textarea>
-                </div>
-                <button type="submit" class="btn">إرسال الرسالة <i class="fas fa-paper-plane"></i></button>
-            </form>
-        </div>
-    </div>
-</section>
-
-<!-- الفوتر (Footer) -->
+<!-- Footer -->
 <footer class="footer">
     <div class="container">
         <div class="footer-content">
             <div class="footer-about">
                 <h3>Spider<span>Scope</span></h3>
-                <p>حلول إنترنت الأشياء الآمنة، نحمي عالمك الذكي.</p>
+                <p data-key="footer_desc">Secure IoT & Cyber Security Solutions. Protecting your smart world.</p>
             </div>
             <div class="footer-links">
-                <h4>روابط سريعة</h4>
+                <h4 data-key="quick_links">Quick Links</h4>
                 <ul>
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#services">خدماتنا</a></li>
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#contact">اتصل بنا</a></li>
+                    <li><a href="index.html" data-key="nav_home">Home</a></li>
+                    <li><a href="services.html" data-key="nav_services">Services</a></li>
+                    <li><a href="about.html" data-key="nav_about">About Us</a></li>
+                    <li><a href="blog.html" data-key="nav_blog">Blog</a></li>
+                    <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-social">
-                <h4>تابعنا</h4>
+                <h4 data-key="follow_us">Follow Us</h4>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 SpiderScope - جميع الحقوق محفوظة | Smart IoT & Cyber Security Solutions</p>
+            <p>&copy; 2026 SpiderScope - <span data-key="copyright">All Rights Reserved</span> | Smart IoT & Cyber Security Solutions</p>
         </div>
     </div>
 </footer>
 
-<!-- ربط ملف JavaScript -->
 <script src="script.js"></script>
-
-<style>
-    /* تنسيق المؤشر المخصص */
-    .custom-cursor {
-        position: fixed;
-        width: 30px;
-        height: 30px;
-        border: 2px solid #e94560;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 99999;
-        transition: all 0.1s ease;
-        transform: translate(-50%, -50%);
-        opacity: 0.3;
-    }
-    
-    /* إخفاء المؤشر العادي على سطح المكتب */
-    @media (min-width: 768px) {
-        body {
-            cursor: none;
-        }
-        a, button, .service-card {
-            cursor: none;
-        }
-    }
-    
-    /* إظهار المؤشر العادي على الجوال */
-    @media (max-width: 768px) {
-        .custom-cursor {
-            display: none;
-        }
-        body {
-            cursor: default;
-        }
-    }
-    
-    /* تأثيرات إضافية */
-    .notification {
-        animation: slideUp 0.3s ease;
-    }
-    
-    @keyframes slideUp {
-        from {
-            opacity: 0;
-            transform: translateX(-50%) translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-    }
-    
-    /* تنسيق زر القائمة للجوال */
-    .menu-btn i {
-        font-size: 24px;
-        transition: all 0.3s ease;
-    }
-</style>
 </body>
 </html>
