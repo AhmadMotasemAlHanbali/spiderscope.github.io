@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - SpiderScope</title>
+    <title>Contact Us - SpiderScope | Get a Quote for Custom IoT Hardware</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
 <header class="header">
     <div class="container">
         <nav class="navbar">
-            <div class="logo"><i class="fas fa-shield-haltered"></i> Spider<span>Scope</span></div>
+            <div class="logo"><i class="fas fa-microchip"></i> Spider<span>Scope</span></div>
             <div class="menu-btn"><i class="fas fa-bars"></i></div>
             <ul class="nav-links">
                 <li><a href="index.html" data-key="nav_home">Home</a></li>
@@ -33,7 +33,7 @@
 <section class="page-header">
     <div class="container">
         <h1 data-key="contact_page_title">Contact <span>Us</span></h1>
-        <p data-key="contact_page_desc">Get in touch with our team for consultations and support</p>
+        <p data-key="contact_page_desc">Get a quote for custom PCB, ESP32 cameras, or 3D printed enclosures</p>
     </div>
 </section>
 
@@ -42,21 +42,33 @@
         <div class="contact-grid">
             <div class="contact-info">
                 <div class="contact-card"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4 data-key="location">Our Location</h4><p>Amman, Jordan</p></div></div>
-                <div class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h4 data-key="email">Email</h4><p>info@spiderscope.com</p></div></div>
-                <div class="contact-card"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div><h4 data-key="phone">Phone</h4><p>+962 7X XXX XXXX</p></div></div>
-                <div class="contact-card"><div class="contact-icon"><i class="fas fa-clock"></i></div><div><h4 data-key="hours">Working Hours</h4><p>Sun - Thu: 9:00 AM - 6:00 PM</p></div></div>
+                <div class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h4 data-key="email">Email</h4><p>infospiderscope@gmail.com</p></div></div>
+                <div class="contact-card"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div><h4 data-key="phone">Phone</h4><p>+962 785487456</p></div></div>
+                <div class="contact-card"><div class="contact-icon"><i class="fas fa-clock"></i></div><div><h4 data-key="hours">Working Hours</h4><p>Sunday - Thursday: 9:00 AM - 6:00 PM</p></div></div>
             </div>
             <form class="contact-form" id="contactForm">
                 <div class="form-group"><input type="text" id="name" placeholder="Full Name" required></div>
                 <div class="form-group"><input type="email" id="email" placeholder="Email Address" required></div>
-                <div class="form-group"><textarea id="message" placeholder="Your Message..." required></textarea></div>
+                <div class="form-group"><textarea id="message" placeholder="Tell us about your IoT project... (PCB design, ESP32 camera, 3D printing, etc.)" rows="5" required></textarea></div>
                 <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                <p class="form-note">We will respond within 24 hours.</p>
             </form>
         </div>
     </div>
 </section>
 
-<footer class="footer">...</footer>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about"><h3>Spider<span>Scope</span></h3><p data-key="footer_desc">Custom IoT hardware from PCB to product. In-house manufacturing with 3D printing and ESP32.</p></div>
+            <div class="footer-links"><h4 data-key="quick_links">Quick Links</h4><ul><li><a href="index.html" data-key="nav_home">Home</a></li><li><a href="services.html" data-key="nav_services">Services</a></li><li><a href="about.html" data-key="nav_about">About Us</a></li><li><a href="blog.html" data-key="nav_blog">Blog</a></li><li><a href="contact.html" data-key="nav_contact">Contact</a></li></ul></div>
+            <div class="footer-contact"><h4 data-key="footer_contact">Contact Us</h4><p><i class="fas fa-envelope"></i> infospiderscope@gmail.com</p><p><i class="fas fa-phone"></i> +962 785487456</p><p><i class="fas fa-map-marker-alt"></i> Amman, Jordan</p></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 SpiderScope - <span data-key="copyright">All Rights Reserved</span> | Custom IoT Hardware</p></div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
