@@ -46,18 +46,22 @@
                 <div class="contact-card"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div><h4 data-key="phone">Phone</h4><p>+962 785487456</p></div></div>
                 <div class="contact-card"><div class="contact-icon"><i class="fas fa-clock"></i></div><div><h4 data-key="hours">Working Hours</h4><p>Sunday - Thursday: 9:00 AM - 6:00 PM</p></div></div>
             </div>
-           <form class="contact-form" action="https://formzero.infospiderscope.workers.dev/api/forms/spiderscope-forms/submissions" method="POST">
-    <div class="form-group">
-        <input type="text" name="name" placeholder="Full Name" required>
-    </div>
-    <div class="form-group">
-        <input type="email" name="email" placeholder="Email Address" required>
-    </div>
-    <div class="form-group">
-        <textarea name="message" placeholder="Your Message..." required></textarea>
-    </div>
-    <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
-</form>
+            
+            <!-- FormZero Form with AJAX (No page reload, no 404) -->
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" name="name" id="name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" id="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" id="message" placeholder="Tell us about your IoT project... (PCB design, ESP32 camera, 3D printing, etc.)" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn" id="submitBtn">Send Message <i class="fas fa-paper-plane"></i></button>
+                <div id="formStatus" style="margin-top: 20px; text-align: center;"></div>
+                <p class="form-note" style="text-align: center; margin-top: 15px; font-size: 14px; color: #94A3B8;">We will respond within 24 hours.</p>
+            </form>
         </div>
     </div>
 </section>
@@ -65,7 +69,7 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-content">
-            <div class="footer-about"><h3>Spider<span>Scope</span></h3><p data-key="footer_desc">Custom IoT hardware product. In-house manufacturing with 3D printing and ESP32.</p></div>
+            <div class="footer-about"><h3>Spider<span>Scope</span></h3><p data-key="footer_desc">Custom IoT hardware from PCB to product. In-house manufacturing with 3D printing and ESP32.</p></div>
             <div class="footer-links"><h4 data-key="quick_links">Quick Links</h4><ul><li><a href="index.html" data-key="nav_home">Home</a></li><li><a href="services.html" data-key="nav_services">Services</a></li><li><a href="about.html" data-key="nav_about">About Us</a></li><li><a href="blog.html" data-key="nav_blog">Blog</a></li><li><a href="contact.html" data-key="nav_contact">Contact</a></li></ul></div>
             <div class="footer-contact"><h4 data-key="footer_contact">Contact Us</h4><p><i class="fas fa-envelope"></i> infospiderscope@gmail.com</p><p><i class="fas fa-phone"></i> +962 785487456</p><p><i class="fas fa-map-marker-alt"></i> Amman, Jordan</p></div>
         </div>
@@ -75,5 +79,91 @@
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="script.js"></script>
+
+<!-- FormZero AJAX Submission Script -->
+<script>
+    // Wait for page to load
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Prevent page reload (NO 404!)
+            
+            // Get form values
+            const name = document.getElementById('name')?.value.trim();
+            const email = document.getElementById('email')?.value.trim();
+            const message = document.getElementById('message')?.value.trim();
+            const statusDiv = document.getElementById('formStatus');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            // Validation
+            if (!name || !email || !message) {
+                statusDiv.innerHTML = '<div style="background: #e94560; padding: 12px; border-radius: 8px; color: white;">❌ Please fill all fields</div>';
+                setTimeout(() => { statusDiv.innerHTML = ''; }, 3000);
+                return;
+            }
+            
+            if (!email.includes('@') || !email.includes('.')) {
+                statusDiv.innerHTML = '<div style="background: #e94560; padding: 12px; border-radius: 8px; color: white;">❌ Please enter a valid email address</div>';
+                setTimeout(() => { statusDiv.innerHTML = ''; }, 3000);
+                return;
+            }
+            
+            // Show loading state
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            statusDiv.innerHTML = '';
+            
+            // Create FormData
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('message', message);
+            
+            try {
+                // Send to FormZero
+                const response = await fetch('https://formzero.infospiderscope.workers.dev/api/forms/spiderscope-forms/submissions', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    // Success
+                    statusDiv.innerHTML = '<div style="background: #00B4D8; padding: 12px; border-radius: 8px; color: #0A1128; font-weight: 500;">✅ Message sent successfully! We will respond within 24 hours.</div>';
+                    form.reset(); // Clear form
+                    
+                    // Optional: Redirect to thank you page after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = 'https://ahmadmotasemalhanbali.github.io/spiderscope.github.io/thank-you.html';
+                    }, 2000);
+                } else {
+                    // Failed
+                    const errorText = await response.text();
+                    console.error('FormZero Error:', errorText);
+                    statusDiv.innerHTML = '<div style="background: #e94560; padding: 12px; border-radius: 8px; color: white;">❌ Failed to send. Please email us directly at infospiderscope@gmail.com</div>';
+                }
+            } catch (error) {
+                console.error('Network Error:', error);
+                statusDiv.innerHTML = '<div style="background: #e94560; padding: 12px; border-radius: 8px; color: white;">❌ Network error. Please check your connection and try again.</div>';
+            } finally {
+                // Restore button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Auto-hide status after 5 seconds
+                setTimeout(() => {
+                    if (statusDiv.innerHTML.includes('successfully')) {
+                        // Keep success message longer
+                    } else {
+                        statusDiv.innerHTML = '';
+                    }
+                }, 5000);
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
